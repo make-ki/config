@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+COMBINED_SINK="dual_output"
+
+get_usb_sink()  { pactl list short sinks | grep -iE "usb|ktmicro" | awk '{print $2}' | head -1; }
+get_bt_sink()   { pactl list short sinks | grep bluez | awk '{print $2}' | head -1; }
+is_combined()   { pactl list short sinks | grep -q "$COMBINED_SINK"; }
+
+dual_on() {
+    local usb_sink bt_sink
+    usb_sink=$(get_usb_sink)
+    bt_sink=$(get_bt_sink)
+
+    if [[ -z "$usb_sink" ]]; then
+        notify-send "Dual Audio" "USB-C earphones not found" -u critical
+        exit 1
+    fi
+    if [[ -z "$bt_sink" ]]; then
+        notify-send "Dual Audio" "Bluetooth earphones not found" -u critical
+        exit 1
+    fi
+
+    if is_combined; then
+        notify-send "Dual Audio" "Already active"
+        exit 0
+    fi
+
+    pactl load-module module-combine-sink \
+        "sink_name=$COMBINED_SINK" \
+        "sinks=$usb_sink,$bt_sink" \
+        "sink_properties=device.description=DualOutput"
+
+    pactl set-default-sink "$COMBINED_SINK"
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ 1.0 2>/dev/null || true
+
+    pactl list short sink-inputs 2>/dev/null | while read -r id _ _ _ _ rest; do
+        pactl move-sink-input "$id" "$COMBINED_SINK" 2>/dev/null || true
+    done
+
+    notify-send "Dual Audio" "ON — USB + BT combined" -u low
+}
+
+dual_off() {
+    local module_id
+    module_id=$(pactl list short modules | grep combine-sink | awk '{print $1}')
+    if [[ -n "$module_id" ]]; then
+        pactl unload-module "$module_id"
+    fi
+
+    local usb_sink
+    usb_sink=$(get_usb_sink)
+    if [[ -n "$usb_sink" ]]; then
+        pactl set-default-sink "$usb_sink"
+    fi
+
+    notify-send "Dual Audio" "OFF" -u low
+}
+
+case "${1:-toggle}" in
+    on)     dual_on ;;
+    off)    dual_off ;;
+    toggle)
+        if is_combined; then
+            dual_off
+        else
+            dual_on
+        fi
+        ;;
+    *)      echo "Usage: dual-audio {on|off|toggle}" >&2; exit 1 ;;
+esac

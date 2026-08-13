@@ -1,0 +1,30 @@
+# ~/.config/mako/config
+# Mako notification daemon config.
+# Colors match the waybar theme (dark #1e1e2e background, gold accent).
+
+font=Sans 12
+
+background-color=#1e1e2ee6
+text-color=#ffffff
+border-color=#d2b473
+progress-color=#d2b473
+
+border-size=2
+border-radius=8
+margin=12
+padding=12
+width=360
+height=150
+default-timeout=8000
+
+anchor=top-right
+layer=overlay
+max-visible=5
+history=0
+group-by=app-name
+sort=-time
+icons=1
+
+[urgency=critical]
+border-color=#f38ba8
+default-timeout=0

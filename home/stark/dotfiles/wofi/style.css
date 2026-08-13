@@ -1,0 +1,45 @@
+/* General Window Styling */
+window {
+    margin: 0px;
+    border: 1px solid #333333;
+    background-color: #000000;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+}
+
+#input {
+    margin: 5px;
+    border: 1px solid #1a1a1a;
+    color: #ffffff;
+    background-color: #000000;
+    padding: 10px;
+}
+
+#inner-box {
+    margin: 5px;
+    border: none;
+    background-color: #000000;
+}
+
+/* Unselected Entries */
+#entry {
+    margin: 0px;
+    padding: 10px;
+    border: none;
+    background-color: #000000;
+    color: #888888; /* Dim grey text */
+}
+
+/* --- THE FIX IS HERE --- */
+
+/* 1. The Box Background turns White */
+#entry:selected {
+    background-color: #ffffff;
+    border-radius: 0px;
+}
+
+/* 2. The Text INSIDE the box turns Black */
+#entry:selected #text {
+    color: #000000;
+    font-weight: bold;
+}

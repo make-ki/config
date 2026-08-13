@@ -1,0 +1,37 @@
+# Alias to start Kali Linux VM with QEMU (using default NAT/SliRP networking)
+# alias startkali='qemu-system-x86_64 -enable-kvm -m 4G -smp 4 -hda ~/os/kali-linux-2025.2-qemu-amd64.qcow2'
+# Shifted to virsh to try something new.
+alias startkali='sudo virsh start kali-vm && virt-viewer -c qemu:///system --attach kali-vm'
+alias shutkali='sudo virsh shutdown kali-vm'
+alias cdgo='cd /home/stark/r/go/goTraining/'
+alias cdty='cd /home/stark/r/go/typing/'
+alias cdp='cd /home/stark/proto/cur/ && nvim .'
+alias cdl='cd /home/stark/labs/cPath/ && nvim .'
+alias cdz='cd /home/stark/r/zt/all-infra/'
+alias cde='cd /home/stark/r/zt/ebpf/ && nvim .'
+alias cdbs='cd /home/stark/labs/dbs/'
+
+# games
+alias factorio='wine /home/stark/games/Factorio/bin/x64/factorio.exe'
+alias assc='wine /home/stark/games/Assassins\ Creed\ II/AssassinsCreedII.exe'
+
+# Alias for openvpn
+alias vpn-netherlands='sudo openvpn --config /home/stark/Documents/nl-free-125.protonvpn.tcp.ovpn --auth-user-pass /home/stark/Documents/proton.txt'
+alias vpn-norway='sudo openvpn --config /home/stark/Documents/no-free-6.protonvpn.tcp.ovpn --auth-user-pass /home/stark/Documents/proton.txt'
+alias vpn-us='sudo openvpn --config /home/stark/Documents/us-free-79.protonvpn.tcp.ovpn --auth-user-pass /home/stark/Documents/proton.txt'
+# For n8n
+export N8N_SECURE_COOKIE=false
+
+# Just for freebuff
+export PATH=~/.npm-global/bin:$PATH
+
+alias mirror='hyprctl keyword monitor "HDMI-A-5,preferred,auto,1,mirror,eDP-1"'
+
+# Go development workflow: Format, Vet, and Build
+god() {
+    go fmt ./...
+    go vet ./...
+    go build .
+}
+
+. "$HOME/.local/bin/env"

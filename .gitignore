@@ -1,0 +1,16 @@
+# nixos-rebuild build output symlink
+result
+result-*
+
+# direnv
+.direnv/
+
+# editor swap files
+*.swp
+*~
+
+# home-manager / nix scratch
+.direnv
+
+# QEMU VM disk images
+*.qcow2

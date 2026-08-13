@@ -1,0 +1,7 @@
+mode=dmenu
+width=1000
+height=300
+location=center
+prompt=Search...
+allow_images=true
+image_size=50
