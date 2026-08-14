@@ -4,7 +4,7 @@
     "height": 24,
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["network", "battery", "pulseaudio", "tray"],
+    "modules-right": ["network", "battery", "pulseaudio", "custom/equalizer", "tray"],
     "hyprland/workspaces": {
         "format": "{id}",
         "all-outputs": true
@@ -21,6 +21,13 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "custom/equalizer": {
+        "exec": "~/.config/waybar/equalizer.sh",
+        "interval": 10,
+        "signal": 2,
+        "on-click": "~/.config/waybar/equalizer.sh toggle",
+        "on-click-right": "easyeffects"
     },
     "battery": {
         "format": "{icon} {capacity}%",

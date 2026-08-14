@@ -55,6 +55,7 @@ show up as links into `/nix/store/...`).
 | Mako (notifications) | `home/stark/dotfiles/mako/` → `~/.config/mako/` (had no config before — was running with defaults) | `home/stark/apps.nix` |
 | Btop | `home/stark/dotfiles/btop/` → `~/.config/btop/` | `home/stark/apps.nix` |
 | Neofetch | `home/stark/dotfiles/neofetch/` → `~/.config/neofetch/` | `home/stark/apps.nix` |
+| OpenCode | `home/stark/dotfiles/opencode/` (opencode.jsonc, agents/, skills/, plugins/) → `~/.config/opencode/` (machine-local node_modules/ etc. left unmanaged) | `home/stark/opencode.nix` |
 | Tmux | `home/stark/dotfiles/tmux.conf` (from your old `~/.tmux.conf`) | `home/stark/tmux.nix` (`programs.tmux`) |
 | Neovim | `home/stark/dotfiles/nvim/` (init.lua, lua/, doc/) → `~/.config/nvim/` | `home/stark/nvim.nix` |
 | Git | identity + defaults (was `~/.gitconfig`) → `~/.config/git/config` | `home/stark/git.nix` (`programs.git`) |
@@ -157,7 +158,37 @@ Prefer a declarative option when one exists (e.g. `programs.git`,
 
 ---
 
-## 6. Handy commands
+## 6. Updating everything (the part everyone forgets)
+
+Your `flake.lock` pins exact versions of nixpkgs and home-manager.
+**Nothing updates by itself** — `rebuild` just applies whatever is pinned.
+You update by refreshing that lock file, then rebuilding:
+
+| Command | What it does |
+|---------|--------------|
+| `rebuild` | Apply the *current pinned* versions. No update, just rebuild. |
+| `update` | Refresh the lock (moves **home-manager**; nixpkgs stays pinned), **build first**, and only switch if the build succeeds. Safe — a broken update never touches your running system. |
+| `rollback` | If an update broke something: switch back to the previous generation (system **and** home-manager together). |
+| `nix flake update home-manager` | Update only the home-manager input |
+| `nix flake lock` | Re-pin without changing anything (useful after editing `flake.nix`) |
+
+**This repo pins nixpkgs to one commit** (see `flake.nix`) — that's deliberate
+reproducibility, which means `nix flake update` will *not* move nixpkgs on its
+own. To move nixpkgs when you're ready:
+
+1. Pick a newer commit: `nix flake metadata github:NixOS/nixpkgs` (or the
+   nixpkgs GitHub page).
+2. Put that commit in the `nixpkgs.url` in `flake.nix`.
+3. `nix flake lock && rebuild` — the whole system + home-manager move together.
+
+A few habits that save you pain:
+
+1. **Commit your config before updating** — `git status` should be clean, so if the update breaks something you can `git diff` the old generation's config later.
+2. **Expect warnings** — nixpkgs renames options over time (you saw `oh-my-zsh` → `ohMyZsh`). Warnings are normal; they tell you the new name.
+3. **The real breakage risk is fast-moving configs like Hyprland** — new versions remove/rename syntax (`togglesplit`, `pseudotile`...). If your desktop breaks after an update, check `hyprctl configerrors` and the wiki, or just `rollback`.
+4. **If the machine won't even boot right**: reboot and pick an older generation from the systemd-boot menu (you keep 10).
+
+## 7. Handy commands
 
 | Command | What it does |
 |---------|--------------|
@@ -169,7 +200,7 @@ Prefer a declarative option when one exists (e.g. `programs.git`,
 
 ---
 
-## 7. The mental model in one paragraph
+## 8. The mental model in one paragraph
 
 NixOS gives you a reproducible **machine**; home-manager gives you a
 reproducible **desktop**. Your dotfiles stop being a pile of unversioned files

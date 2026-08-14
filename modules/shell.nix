@@ -28,7 +28,12 @@
     shellAliases = {
       # NixOS management
       rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config";
-      update = "cd ~/nixos-config && nix flake update && sudo nixos-rebuild switch --flake .";
+      # Update = refresh flake.lock (nixpkgs is pinned and won't move — see
+      # flake.nix; this updates home-manager), BUILD first, and only switch if
+      # the build succeeds — a broken update never nukes the running system.
+      update = "cd ~/nixos-config && nix flake update && nixos-rebuild build --flake . && sudo nixos-rebuild switch --flake .";
+      # If an update breaks something: switch back to the previous generation.
+      rollback = "sudo nixos-rebuild switch --flake ~/nixos-config --rollback";
       nixos-list = "nix profile history --profile /nix/var/nix/profiles/system";
       nixos-clean = "sudo nix-collect-garbage -d";
 

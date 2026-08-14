@@ -2,6 +2,11 @@
   description = "Stark's NixOS Configuration";
 
   inputs = {
+    # nixpkgs is intentionally pinned to an exact commit for reproducibility.
+    # `nix flake update` will NOT move it — a commit hash is a fixed ref.
+    # To update nixpkgs: pick a newer commit (e.g. `nix flake metadata
+    # github:NixOS/nixpkgs` or the nixpkgs GitHub page), put it in the URL
+    # below, then run: nix flake lock && rebuild
     nixpkgs.url = "github:NixOS/nixpkgs/867dcbc30bafe3c862ef88620f2e7a109d7d3be5";
     # Home-manager manages user-level configs (tmux, nvim, hyprland, ...).
     # `follows = "nixpkgs"` makes it use the SAME nixpkgs as the system,

@@ -14,6 +14,7 @@
     ./git.nix
     ./hyprland.nix
     ./nvim.nix
+    ./opencode.nix
     ./packages.nix
     ./shell.nix
     ./tmux.nix

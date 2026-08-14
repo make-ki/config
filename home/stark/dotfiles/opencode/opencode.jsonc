@@ -1,0 +1,14 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "orchestrator",
+  "mcp": {
+    // Context7 — up-to-date, version-specific library docs for the model.
+    // Free tier works without a key; run `npx ctx7 setup --opencode` anytime
+    // to OAuth-authenticate for higher rate limits (it adds its own key + skill).
+    "context7": {
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp"],
+      "enabled": true
+    }
+  }
+}

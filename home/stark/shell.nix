@@ -5,9 +5,10 @@
 #   - ~/.local/bin/    (dual-audio, env, env.fish — sourced by the shells)
 #
 # Files are managed individually so the rest of ~/.local/bin (e.g. the `agy`
-# binary) stays untouched. Note: ~/.zshrc itself is NOT managed here — it's
-# configured through NixOS (modules/shell.nix) and contains a plaintext API
-# key that should not be committed to this repo.
+# binary) stays untouched. Note: ~/.zshrc itself is NOT managed here — it's a
+# plain file that sources ~/.profile and ~/.local/bin/env. Audited 2026-08-14:
+# it contains no secrets, and neither do the managed files above. If you ever
+# add an API key to a dotfile, keep it OUT of this repo.
 { ... }:
 
 {

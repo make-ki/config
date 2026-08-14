@@ -17,6 +17,14 @@ window#waybar {
     background: #89b4fa;
     color: #1e1e2e;
 }
-#clock, #pulseaudio, #network, #battery, #tray {
+#clock, #pulseaudio, #network, #battery, #tray, #custom-equalizer {
     padding: 0 10px;
+}
+
+#custom-equalizer.bypassed {
+    opacity: 0.5;
+}
+
+#custom-equalizer.off {
+    opacity: 0.6;
 }
