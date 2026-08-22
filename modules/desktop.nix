@@ -20,9 +20,12 @@
 
   # SDDM display manager (Wayland session support)
   services.displayManager = {
-    # Default to plain Hyprland at the login screen (the uwsm-managed entry
-    # also works; it can be picked from the session dropdown).
-    defaultSession = "hyprland";
+    # UWSM manages the Wayland session lifecycle; the desktop file is
+    # `hyprland-uwsm.desktop` when `programs.hyprland.withUWSM = true`.
+    # Using "hyprland" here would launch the non-UWSM entry, which lacks
+    # the `wayland-session-bindpid@.service` systemd unit that SDDM's
+    # Wayland mode needs — causing a blank screen after login.
+    defaultSession = "hyprland-uwsm";
     sddm = {
       enable = true;
       wayland.enable = true;
