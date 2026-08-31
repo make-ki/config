@@ -1,5 +1,5 @@
 # home/stark/hyprland.nix
-# Desktop configs: Hyprland compositor, hypridle, hyprpaper, Waybar, Kitty, Wofi.
+# Desktop configs: Hyprland compositor, hypridle, awww, Waybar, Kitty, Wofi.
 #
 # The actual config files live in ./dotfiles/ and get symlinked into ~/.config.
 # Symlinked files point into the read-only nix store, so edit them HERE and
@@ -8,7 +8,7 @@
 
 {
   home.file = {
-    # Hyprland + hypridle + hyprpaper + helper scripts (wofi_search.sh, waybar_hover.sh)
+    # Hyprland + hypridle + awww + helper scripts (wofi_search.sh, waybar_hover.sh)
     ".config/hypr" = {
       source = ./dotfiles/hypr;
       recursive = true;

@@ -11,6 +11,8 @@
     interactiveShellInit = ''
       source ${pkgs.fzf}/share/fzf/key-bindings.zsh
       source ${pkgs.fzf}/share/fzf/completion.zsh
+      # Ensure ~/.local/bin is before /usr/bin so custom wrappers (e.g. steam) take priority.
+      export PATH="$HOME/.local/bin:$PATH"
     '';
 
     ohMyZsh = {
@@ -42,6 +44,13 @@
       gs = "git status";
       gp = "git push";
       cat = "bat --paging=never";
+
+      # FreeDeepseekAPI proxy
+      ds-auth = "bash ~/.config/opencode/free-deepseek-api/auth-nixos.sh";
+      ds-start = "systemctl --user start free-deepseek-api";
+      ds-stop = "systemctl --user stop free-deepseek-api";
+      ds-status = "systemctl --user status free-deepseek-api";
+      ds-log = "journalctl --user -u free-deepseek-api -f";
 
       # PRIME render offload — run GPU-heavy apps on the NVIDIA GPU.
       # Usage: gpu steam, gpu steam-run ./game, gpu blender, etc.

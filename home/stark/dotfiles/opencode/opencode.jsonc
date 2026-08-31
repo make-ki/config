@@ -1,13 +1,185 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "orchestrator",
+  "model": "bai/claude-opus-4-8",
+  "small_model": "opencode/muse-spark-1.2-contributor-free",
+  "provider": {
+    "bai": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "B.AI",
+      "options": {
+        "baseURL": "https://api.b.ai/v1",
+        "apiKey": "{file:/home/stark/.config/opencode/bai-api-key}"
+      },
+      "models": {
+        "minimax-m3": {
+          "name": "minimax-m3"
+        },
+        "minimax-m2.7": {
+          "name": "minimax-m2.7"
+        },
+        "glm-5.1": {
+          "name": "glm-5.1"
+        },
+        "glm-5.2": {
+          "name": "glm-5.2"
+        },
+        "gpt-5.6-sol": {
+          "name": "gpt-5.6-sol"
+        },
+        "gpt-5.6-terra": {
+          "name": "gpt-5.6-terra"
+        },
+        "gpt-5.6-luna": {
+          "name": "gpt-5.6-luna"
+        },
+        "gpt-5.5": {
+          "name": "gpt-5.5"
+        },
+        "gpt-5.5-instant": {
+          "name": "gpt-5.5-instant"
+        },
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        },
+        "gpt-5.2": {
+          "name": "gpt-5.2"
+        },
+        "gpt-5.4-pro": {
+          "name": "gpt-5.4-pro"
+        },
+        "gpt-5.4-mini": {
+          "name": "gpt-5.4-mini"
+        },
+        "gpt-5-mini": {
+          "name": "gpt-5-mini"
+        },
+        "gpt-5.4-nano": {
+          "name": "gpt-5.4-nano"
+        },
+        "gpt-5-nano": {
+          "name": "gpt-5-nano"
+        },
+        "claude-opus-5": {
+          "name": "claude-opus-5"
+        },
+        "claude-fable-5": {
+          "name": "claude-fable-5"
+        },
+        "claude-opus-4.8": {
+          "name": "claude-opus-4.8"
+        },
+        "claude-opus-4.7": {
+          "name": "claude-opus-4.7"
+        },
+        "claude-opus-4.6": {
+          "name": "claude-opus-4.6"
+        },
+        "claude-opus-4.5": {
+          "name": "claude-opus-4.5"
+        },
+        "claude-sonnet-5": {
+          "name": "claude-sonnet-5"
+        },
+        "claude-sonnet-4.6": {
+          "name": "claude-sonnet-4.6"
+        },
+        "claude-sonnet-4.5": {
+          "name": "claude-sonnet-4.5"
+        },
+        "claude-haiku-4.5": {
+          "name": "claude-haiku-4.5"
+        },
+        "gemini-3.1-pro": {
+          "name": "gemini-3.1-pro"
+        },
+        "gemini-3-flash": {
+          "name": "gemini-3-flash"
+        },
+        "gemini-3.5-flash-lite": {
+          "name": "gemini-3.5-flash-lite"
+        },
+        "gemini-3.6-flash": {
+          "name": "gemini-3.6-flash"
+        },
+        "hy3": {
+          "name": "hy3"
+        },
+        "kimi-k2.6": {
+          "name": "kimi-k2.6"
+        },
+        "glm-5.3": {
+          "name": "glm-5.3"
+        },
+        "kimi-k3": {
+          "name": "kimi-k3"
+        },
+        "qwen3.8-max": {
+          "name": "qwen3.8-max"
+        },
+        "deepseek-v4-flash": {
+          "name": "deepseek-v4-flash"
+        },
+        "mimo-v2.5": {
+          "name": "mimo-v2.5"
+        },
+        "deepseek-v4-flash-vision-exp": {
+          "name": "deepseek-v4-flash-vision-exp"
+        },
+        "deepseek-v4-pro": {
+          "name": "deepseek-v4-pro"
+        },
+        "gemini-3.5-flash": {
+          "name": "gemini-3.5-flash"
+        },
+        "qwen3.8-27b": {
+          "name": "qwen3.8-27b"
+        },
+        "mimo-v2.5-pro": {
+          "name": "mimo-v2.5-pro"
+        }
+      }
+    },
+    "ds-free": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "DeepSeek Free (Web Chat)",
+      "options": {
+        "baseURL": "http://127.0.0.1:9655/v1",
+        "apiKey": "unused"
+      },
+      "models": {
+        "deepseek-chat": {
+          "name": "deepseek-chat"
+        },
+        "deepseek-expert": {
+          "name": "deepseek-expert"
+        },
+        "deepseek-reasoner": {
+          "name": "deepseek-reasoner"
+        },
+        "deepseek-chat-search": {
+          "name": "deepseek-chat-search"
+        }
+      }
+    }
+  },
   "mcp": {
-    // Context7 — up-to-date, version-specific library docs for the model.
-    // Free tier works without a key; run `npx ctx7 setup --opencode` anytime
-    // to OAuth-authenticate for higher rate limits (it adds its own key + skill).
     "context7": {
       "type": "local",
-      "command": ["npx", "-y", "@upstash/context7-mcp"],
+      "command": [
+        "npx",
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "enabled": true
+    },
+    "ssh-mcp": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "ssh-mcp"
+      ],
       "enabled": true
     }
   }

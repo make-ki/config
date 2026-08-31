@@ -53,12 +53,12 @@
   # ─── System Packages ────────────────────────────────────────
   environment.systemPackages = with pkgs; [
     # Wayland essentials
-    hyprland kitty waybar swww mako wl-clipboard grim slurp brightnessctl
-    dbus wofi hyprpaper pulseaudio fzf eww hypridle
+    hyprland kitty waybar awww mako wl-clipboard grim slurp brightnessctl
+    dbus wofi pulseaudio fzf eww hypridle
 
     # Desktop apps
-    firefox qemu obsidian file vlc kdePackages.ark obs-studio
-    vesktop pavucontrol easyeffects vscode
+    firefox obsidian file vlc kdePackages.ark obs-studio
+    vesktop pavucontrol vscode
     kdePackages.dolphin qbittorrent gef hexedit
     element-desktop distrobox boxbuddy
 
@@ -110,12 +110,6 @@
   };
   services.openssh.enable = true;
   services.udisks2.enable = true;
-
-  # MySQL
-  services.mysql = {
-    enable = true;
-    package = pkgs.mysql84;
-  };
 
   # Flatpak
   services.flatpak.enable = true;

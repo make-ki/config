@@ -1,0 +1,12 @@
+#!/bin/sh
+# NVIDIA PRIME render offload wrapper for Steam.
+# Forces Steam and all child processes (games, CEF, etc.) to use the NVIDIA GPU.
+# Managed by NixOS — do not edit ~/.local/bin/steam directly.
+# Created 2026-08-22
+
+export __NV_PRIME_RENDER_OFFLOAD=1
+export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export __VK_LAYER_NV_optimus=NVIDIA_only
+
+exec /run/current-system/sw/bin/steam "$@"
