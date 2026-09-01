@@ -2,7 +2,7 @@
 # OpenCode AI agent config:
 #   - opencode.jsonc   (default agent, MCP servers)
 #   - agents/          (orchestrator + code-reviewer/researcher/debugger/architect)
-#   - skills/          (grill-me, stop-slop, handoff)
+#   - skills/          (grill-me, stop-slop, handoff, exam-prep)
 #   - plugins/         (safety-net.js — blocks .env reads + destructive bash)
 #
 # The actual files live in ./dotfiles/opencode/ and get symlinked into

@@ -195,7 +195,7 @@ require('lazy').setup({
 
       local servers = {
         clangd = {
-          cmd = { '/run/current-system/sw/bin/clangd', '--background-index', '--clang-tidy', '--suggest-missing-includes', '--header-insertion=never' },
+          cmd = { '/run/current-system/sw/bin/clangd', '--background-index', '--clang-tidy', '--header-insertion=never' },
           init_options = {
             clangdFileStatus = true,
             usePlaceholders = true,
@@ -236,6 +236,26 @@ require('lazy').setup({
           end
         },
       }
+    end,
+  },
+
+  -- Inline LSP Diagnostics (lsp_lines)
+  -- Renders diagnostics under the offending line instead of off the right edge.
+  -- Note: hosted on sourcehut, so the full URL is required (the global
+  -- url_format would otherwise rewrite it to a non-existent github.com repo).
+  {
+    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    event = 'LspAttach',
+    config = function()
+      require('lsp_lines').setup()
+      -- lsp_lines replaces the default single-line virtual text; keep them
+      -- from both rendering at once.
+      vim.diagnostic.config({
+        virtual_text = false,
+        -- lsp_lines only *registers* the `virtual_lines` handler; it does not
+        -- enable it. Without this the diagnostics would not render at all.
+        virtual_lines = true,
+      })
     end,
   },
 
