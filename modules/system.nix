@@ -13,6 +13,18 @@
   };
   programs.nm-applet.enable = true;
 
+  # NetworkManager-wait-online stalls boot behind slow/flaky WiFi (campus
+  # network drops during boot → nm-online runs its full 60s timeout →
+  # network-online.target → docker.service → multi-user.target →
+  # graphical.target all stall). uwsm then refuses to start Hyprland until
+  # graphical.target is reached, so SDDM login dies ~3s after password entry
+  # with a black screen — looks exactly like a GPU issue but isn't.
+  # Docker/libvirtd don't need "online" at boot; they only need the bridge
+  # devices which come up regardless. Mask the wait-online unit entirely.
+  systemd.services.NetworkManager-wait-online = {
+    enable = false;
+  };
+
   # ─── Time & Locale ──────────────────────────────────────────
   time.timeZone = "Asia/Kolkata";
   i18n.extraLocaleSettings = {
@@ -25,7 +37,7 @@
   users.users.stark = {
     isNormalUser = true;
     description = "stark";
-    extraGroups = [ "networkmanager" "wheel" "docker" "openvpn" "libvirtd" "kvm" "wireshark" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "openvpn" "libvirtd" "kvm" "wireshark" "dialout"];
     linger = true;  # Enable user-level systemd services
   };
 

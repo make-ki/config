@@ -12,116 +12,41 @@
         "apiKey": "{file:/home/stark/.config/opencode/bai-api-key}"
       },
       "models": {
-        "minimax-m3": {
-          "name": "minimax-m3"
-        },
-        "minimax-m2.7": {
-          "name": "minimax-m2.7"
-        },
-        "glm-5.1": {
-          "name": "glm-5.1"
-        },
-        "glm-5.2": {
-          "name": "glm-5.2"
-        },
-        "gpt-5.6-sol": {
-          "name": "gpt-5.6-sol"
-        },
-        "gpt-5.6-terra": {
-          "name": "gpt-5.6-terra"
-        },
-        "gpt-5.6-luna": {
-          "name": "gpt-5.6-luna"
-        },
-        "gpt-5.5": {
-          "name": "gpt-5.5"
-        },
-        "gpt-5.5-instant": {
-          "name": "gpt-5.5-instant"
-        },
-        "gpt-5.4": {
-          "name": "gpt-5.4"
-        },
-        "gpt-5.2": {
-          "name": "gpt-5.2"
-        },
-        "gpt-5.4-pro": {
-          "name": "gpt-5.4-pro"
-        },
-        "gpt-5.4-mini": {
-          "name": "gpt-5.4-mini"
-        },
-        "gpt-5-mini": {
-          "name": "gpt-5-mini"
-        },
-        "gpt-5.4-nano": {
-          "name": "gpt-5.4-nano"
-        },
-        "gpt-5-nano": {
-          "name": "gpt-5-nano"
-        },
-        "claude-opus-5": {
-          "name": "claude-opus-5"
-        },
         "claude-fable-5": {
           "name": "claude-fable-5"
         },
-        "claude-opus-4.8": {
-          "name": "claude-opus-4.8"
-        },
-        "claude-opus-4.7": {
-          "name": "claude-opus-4.7"
-        },
-        "claude-opus-4.6": {
-          "name": "claude-opus-4.6"
-        },
-        "claude-opus-4.5": {
-          "name": "claude-opus-4.5"
-        },
-        "claude-sonnet-5": {
-          "name": "claude-sonnet-5"
-        },
-        "claude-sonnet-4.6": {
-          "name": "claude-sonnet-4.6"
-        },
-        "claude-sonnet-4.5": {
-          "name": "claude-sonnet-4.5"
+        "claude-fable-5.1": {
+          "name": "claude-fable-5.1"
         },
         "claude-haiku-4.5": {
           "name": "claude-haiku-4.5"
         },
-        "gemini-3.1-pro": {
-          "name": "gemini-3.1-pro"
+        "claude-opus-4.5": {
+          "name": "claude-opus-4.5"
         },
-        "gemini-3-flash": {
-          "name": "gemini-3-flash"
+        "claude-opus-4.6": {
+          "name": "claude-opus-4.6"
         },
-        "gemini-3.5-flash-lite": {
-          "name": "gemini-3.5-flash-lite"
+        "claude-opus-4.7": {
+          "name": "claude-opus-4.7"
         },
-        "gemini-3.6-flash": {
-          "name": "gemini-3.6-flash"
+        "claude-opus-4.8": {
+          "name": "claude-opus-4.8"
         },
-        "hy3": {
-          "name": "hy3"
+        "claude-opus-5": {
+          "name": "claude-opus-5"
         },
-        "kimi-k2.6": {
-          "name": "kimi-k2.6"
+        "claude-sonnet-4.5": {
+          "name": "claude-sonnet-4.5"
         },
-        "glm-5.3": {
-          "name": "glm-5.3"
+        "claude-sonnet-4.6": {
+          "name": "claude-sonnet-4.6"
         },
-        "kimi-k3": {
-          "name": "kimi-k3"
-        },
-        "qwen3.8-max": {
-          "name": "qwen3.8-max"
+        "claude-sonnet-5": {
+          "name": "claude-sonnet-5"
         },
         "deepseek-v4-flash": {
           "name": "deepseek-v4-flash"
-        },
-        "mimo-v2.5": {
-          "name": "mimo-v2.5"
         },
         "deepseek-v4-flash-vision-exp": {
           "name": "deepseek-v4-flash-vision-exp"
@@ -129,14 +54,150 @@
         "deepseek-v4-pro": {
           "name": "deepseek-v4-pro"
         },
+        "gemini-3-flash": {
+          "name": "gemini-3-flash"
+        },
+        "gemini-3.1-pro": {
+          "name": "gemini-3.1-pro"
+        },
         "gemini-3.5-flash": {
           "name": "gemini-3.5-flash"
+        },
+        "gemini-3.5-flash-lite": {
+          "name": "gemini-3.5-flash-lite"
+        },
+        "gemini-3.6-flash": {
+          "name": "gemini-3.6-flash"
+        },
+        "gemini-3.8-flash": {
+          "name": "gemini-3.8-flash"
+        },
+        "glm-5.1": {
+          "name": "glm-5.1"
+        },
+        "glm-5.2": {
+          "name": "glm-5.2"
+        },
+        "glm-5.3": {
+          "name": "glm-5.3"
+        },
+        "glm-5.3-flash": {
+          "name": "glm-5.3-flash"
+        },
+        "gpt-5-mini": {
+          "name": "gpt-5-mini"
+        },
+        "gpt-5-nano": {
+          "name": "gpt-5-nano"
+        },
+        "gpt-5.2": {
+          "name": "gpt-5.2"
+        },
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        },
+        "gpt-5.4-mini": {
+          "name": "gpt-5.4-mini"
+        },
+        "gpt-5.4-nano": {
+          "name": "gpt-5.4-nano"
+        },
+        "gpt-5.4-pro": {
+          "name": "gpt-5.4-pro"
+        },
+        "gpt-5.5": {
+          "name": "gpt-5.5"
+        },
+        "gpt-5.5-instant": {
+          "name": "gpt-5.5-instant"
+        },
+        "gpt-5.6-luna": {
+          "name": "gpt-5.6-luna"
+        },
+        "gpt-5.6-sol": {
+          "name": "gpt-5.6-sol"
+        },
+        "gpt-5.6-terra": {
+          "name": "gpt-5.6-terra"
+        },
+        "gpt-6-astra": {
+          "name": "gpt-6-astra"
+        },
+        "hy3": {
+          "name": "hy3"
+        },
+        "hy4-preview": {
+          "name": "hy4-preview"
+        },
+        "kimi-k2.6": {
+          "name": "kimi-k2.6"
+        },
+        "kimi-k3": {
+          "name": "kimi-k3"
+        },
+        "mimo-v2.5": {
+          "name": "mimo-v2.5"
+        },
+        "mimo-v2.5-pro": {
+          "name": "mimo-v2.5-pro"
+        },
+        "minimax-m2.7": {
+          "name": "minimax-m2.7"
+        },
+        "minimax-m3": {
+          "name": "minimax-m3"
         },
         "qwen3.8-27b": {
           "name": "qwen3.8-27b"
         },
-        "mimo-v2.5-pro": {
-          "name": "mimo-v2.5-pro"
+        "qwen3.8-flash": {
+          "name": "qwen3.8-flash"
+        },
+        "qwen3.8-max": {
+          "name": "qwen3.8-max"
+        }
+      }
+    },
+    "tokenrouter": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "TokenRouter",
+      "options": {
+        "baseURL": "https://api.tokenrouter.com/v1",
+        "apiKey": "{file:/home/stark/.config/opencode/tokenrouter-api-key}"
+      },
+      "models": {
+        "z-ai/glm-4.5-air": {
+          "name": "z-ai/glm-4.5-air"
+        },
+        "z-ai/glm-4.6": {
+          "name": "z-ai/glm-4.6"
+        },
+        "z-ai/glm-4.6v": {
+          "name": "z-ai/glm-4.6v"
+        },
+        "z-ai/glm-4.7": {
+          "name": "z-ai/glm-4.7"
+        },
+        "z-ai/glm-5": {
+          "name": "z-ai/glm-5"
+        },
+        "z-ai/glm-5-turbo": {
+          "name": "z-ai/glm-5-turbo"
+        },
+        "z-ai/glm-5.1": {
+          "name": "z-ai/glm-5.1"
+        },
+        "z-ai/glm-5.2": {
+          "name": "z-ai/glm-5.2"
+        },
+        "z-ai/glm-5.3": {
+          "name": "z-ai/glm-5.3"
+        },
+        "z-ai/glm-5.3-flash": {
+          "name": "z-ai/glm-5.3-flash"
+        },
+        "z-ai/glm-5.3-free": {
+          "name": "z-ai/glm-5.3-free"
         }
       }
     },
@@ -161,6 +222,31 @@
           "name": "deepseek-chat-search"
         }
       }
+    },
+    "atria": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Atria",
+      "options": {
+        "baseURL": "https://api.atria-asi.ai/v1",
+        "apiKey": "{file:/home/stark/.config/opencode/atria-api-key}"
+      },
+      "models": {
+        "Atria-Dawn-Preview": {
+          "name": "Atria Dawn Preview",
+          "limit": {
+            "context": 256000,
+            "output": 65536
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "tool_call": true,
+          "attachment": false,
+          "temperature": true,
+          "reasoning": false
+        }
+      }
     }
   },
   "mcp": {
@@ -180,6 +266,33 @@
         "-y",
         "ssh-mcp"
       ],
+      "enabled": true
+    },
+    "octocode": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "octocode-mcp@latest"
+      ],
+      "enabled": true,
+      // cold `npx` install + tool listing needs way more than the 5s default
+      "timeout": 120000,
+      "environment": {
+        // local code-search tools (offline, no token needed)
+        "ENABLE_LOCAL": "true"
+        // GitHub tools need a token. Add here once you have one:
+        // "GITHUB_TOKEN": "{env:GITHUB_TOKEN}"
+      }
+    },
+    "deepwiki": {
+      "type": "remote",
+      "url": "https://mcp.deepwiki.com/mcp",
+      "enabled": true
+    },
+    "gitmcp": {
+      "type": "remote",
+      "url": "https://gitmcp.io/docs",
       "enabled": true
     }
   }

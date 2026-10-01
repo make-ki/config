@@ -35,3 +35,10 @@ god() {
 }
 
 . "$HOME/.local/bin/env"
+
+# opencode voice: API key for @renjfk/opencode-voice's LLM normalization.
+# The secret itself lives outside this repo (600-perm file); we only export
+# its contents into the session env. Used by tui.json via apiKeyEnv=BAI_API_KEY.
+if [ -f "$HOME/.config/opencode/bai-api-key" ]; then
+    export BAI_API_KEY="$(cat "$HOME/.config/opencode/bai-api-key")"
+fi

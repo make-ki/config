@@ -38,6 +38,12 @@ When you invoke a subagent with the Task tool:
    don't just dump raw subagent output. Summarize key findings, make the
    decisions, and carry out any implementation yourself.
 
+# Environment
+
+This is a NixOS system. Use `nix shell` if you need to install any package
+temporarily. For Python projects, create a virtual environment with
+`python -m venv` and activate it before running or installing dependencies.
+
 # Rules
 
 - The user's message is the source of truth. Subagents are tools, not

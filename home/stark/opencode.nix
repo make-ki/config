@@ -4,6 +4,7 @@
 #   - agents/          (orchestrator + code-reviewer/researcher/debugger/architect)
 #   - skills/          (grill-me, stop-slop, handoff, exam-prep)
 #   - plugins/         (safety-net.js — blocks .env reads + destructive bash)
+#   - tui.json          (TUI plugins: opencode-voice STT (renjfk) + Kokoro TTS)
 #
 # The actual files live in ./dotfiles/opencode/ and get symlinked into
 # ~/.config/opencode. Symlinked files point into the read-only nix store, so
@@ -17,6 +18,7 @@
 {
   home.file = {
     ".config/opencode/opencode.jsonc".source = ./dotfiles/opencode/opencode.jsonc;
+    ".config/opencode/tui.json".source = ./dotfiles/opencode/tui.json;
 
     ".config/opencode/agents" = {
       source = ./dotfiles/opencode/agents;
